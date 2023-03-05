@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        h1 {font-size: 50px;color: greenyellow;}
+        body {background: linear-gradient(to right, orange,blue,purple);}
+        .flex-container{
+            border: solid;
+            height: 500px;
+            width: 1200px;
+            background-color: palevioletred;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        animation-name: abdi;animation-duration: 120s;animation-iteration-count: infinite;}
+        @keyframes abdi {
+            0%{background-color: chartreuse;}
+            15%{background-color: crimson;}
+            30%{background-color: darkcyan;}
+            45%{background-color: goldenrod;}
+            60%{background-color: hotpink;}
+            75%{background-color: orangered;}
+            100%{background-color: royalblue;}
+            
+        }
+            .flex-item{
+                background-color: lightskyblue;}
+                .score{
+                    background-color: aqua;
+                    border:solid;
+                    border-radius: 10px;
+                    height: 300px;
+                    width: 300px;
+                }
+                table{
+                    border-radius: 10px;
+                    border: solid;
+                }
+                .hat{
+                    width: 70px;
+                    height: 130px;
+                    border: solid;
+                    border-radius: 10px;  
+
+                }
+                .line{
+                    width: 70px;
+                    height: 130px;
+                    border: solid;
+                    border-radius: 10px;                    
+                }
+                
+                
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Memory Game</h1>
+        <div class="flex-container">
+            <div class="table flex-item">
+                <table>
+                    <tr>
+                        <td>
+                            <img id="One" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                            <img id="Two" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                            <img id="Three" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img id="Four" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                            <img id="Five" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                            <img id="Six" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img id="Seven" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                            <img id="Eight" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                            <img id="Nine" onclick="memoryg(this.id)" src="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" height="100px"width="100px">
+                        </td>
+                    </tr>
+                </table>
+        </div>
+        <div class="score flex-container">
+            <div class="flex-item hat">
+            <img src="//www.clipartmax.com/png/middle/5-57118_magicians-hat-clipart-magician-hat-png.png"
+            height="70px" >
+            <h3 id="hs" >0</h3>
+            </div>
+            <div class="flex-item line">
+                <img src="https://toppng.com/uploads/preview/magic-wand-11551048629bvq7v5u8b6.png" height="70px">
+                <h3 id="ls">0</h3>
+            </div>
+        </div>
+    </center>
+    <script>
+        let ls=0 
+        let hs=0
+        let mb="https://c0.klipartz.com/pngpicture/685/93/gratis-png-caja-de-carton-de-la-subasta-de-sombrero-de-carton-misteriosa-caja.png" 
+        function memoryg(box)
+        {
+            let play=document.getElementById(box).src
+            if(play==mb){
+            let x=Math.random()*100
+            x=Math.floor(x)
+            if(x%2==0){    
+            hs=hs+1
+            document.getElementById("hs").innerText=hs
+            document.getElementById(box).src="//www.clipartmax.com/png/middle/5-57118_magicians-hat-clipart-magician-hat-png.png" 
+            if(ls>4){
+                location.href="Winner.html"
+            }
+        }
+        else{
+            ls=ls+1
+            document.getElementById("ls").innerText=ls
+            document.getElementById(box).src="https://toppng.com/uploads/preview/magic-wand-11551048629bvq7v5u8b6.png"
+            if(hs>4){
+                location.href="loser.html"
+            }
+        }}
+    }
+    </script>
+</body>
+</html>
